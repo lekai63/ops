@@ -117,6 +117,13 @@ jobs:
     - name: Check space usage
       if: (!cancelled())
       run: df -hT
+      
+    - name: Upload config
+      uses: actions/upload-artifact@v2
+      with:
+        name: targzconfig
+        path: openwrt/.config
+        
 
     - name: Upload bin directory
       uses: actions/upload-artifact@main
