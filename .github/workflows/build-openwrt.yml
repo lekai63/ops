@@ -92,16 +92,12 @@ jobs:
       env:
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-
-    - name: mv config
-      run: |
-        [ -e $CONFIG_FILE ] && mv openwrt/.config $CONFIG_FILE  
         
     - name: Upload config
       uses: actions/upload-artifact@main
       with:
         name: targzconfig
-        path: $CONFIG_FILE 
+        path: /workdir/openwrt/.config
 
     - name: Download package
       id: package
