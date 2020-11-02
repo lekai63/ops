@@ -93,6 +93,12 @@ jobs:
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
 
+    - name: upload as targzconfig
+      uses: actions/upload-artifact@v2
+      with:
+        name: targzconfig
+        path: openwrt/.config
+
     - name: Download package
       id: package
       run: |
@@ -116,14 +122,7 @@ jobs:
 
     - name: Check space usage
       if: (!cancelled())
-      run: df -hT
-      
-    - name: Upload config
-      uses: actions/upload-artifact@v2
-      with:
-        name: targzconfig
-        path: openwrt/.config
-        
+      run: df -hT           
 
     - name: Upload bin directory
       uses: actions/upload-artifact@main
