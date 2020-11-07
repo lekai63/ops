@@ -13,8 +13,8 @@ passwd
 pct set 100 -mp0 /host/path/to/shared,mp=/container/path/to/shared,quota=0,replicate=0,ro=0,
 ```
 出于安全性考虑，禁止含有文件链接。
-
-|---|---|
+| 参数| 含义|
+|---- |----|
 |quota=<boolean>|   	                  在容器内启用用户空间配额（对基于zfs子卷的存储卷无效)|
   
 |replicate=<boolean> (default = 1) |  	卷是否被可以被调度任务复制|
