@@ -1,0 +1,22 @@
+#!/bin/sh /etc/rc.common
+ 
+START=90
+STOP=90
+SERVICE=frpc
+USE_PROCD=1
+PROC="/op/bin/frpc/frpc -c /op/bin/frpc/frpc.ini"
+ 
+start_service()
+ 
+{
+    procd_open_instance
+    procd_set_param command $PROC
+    procd_set_param respawn
+    procd_close_instance
+ 
+}
+ 
+service_triggers()
+{
+    procd_add_reload_trigger "rpcd"
+}
