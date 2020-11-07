@@ -5,16 +5,9 @@ config interface 'loopback'
         option ipaddr '127.0.0.1'
         option netmask '255.0.0.0'
 
-config globals 'globals'
-        option ula_prefix 'fd9a:8768:eabd::/48'
-
 config interface 'lan'
         option type 'bridge'
         option ifname 'eth0'
         option proto 'dhcp'
         option delegate '0'
-
-config interface 'lan6'
-        option ifname 'br-lan'
-        option proto 'dhcpv6'
 
