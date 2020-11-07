@@ -10,7 +10,7 @@ passwd
 
 ## 挂载共享目录
 ```
-pct set 100 -mp0 /host/path/to/shared,mp=/container/path/to/shared,quota=0,replicate=0,ro=0,
+pct set 100 -mp0 /home/pve/Downloads/op,mp=/op,quota=0,replicate=0,ro=0,
 ```
 出于安全性考虑，禁止含有文件链接。
 | 参数| 含义|
@@ -19,6 +19,7 @@ pct set 100 -mp0 /host/path/to/shared,mp=/container/path/to/shared,quota=0,repli
 |replicate=<boolean> (default = 1) |  	卷是否被可以被调度任务复制|
 |ro=<boolean>  |                       	用于标识只读挂载点 |
 | shared=<boolean> (default = 0)   |   	用于标识当前存储卷挂载点对所有节点可见 |
+
 
 参考: proxmox 6.2 文档 11.3.4挂载点
 
