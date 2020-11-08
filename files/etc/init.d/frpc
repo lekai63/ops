@@ -4,7 +4,7 @@ START=90
 STOP=90
 SERVICE=frpc
 USE_PROCD=1
-PROC="/op/bin/frpc/frpc -c /op/bin/frpc/frpc.ini"
+PROC="/usr/bin/frpc -c /var/etc/frp/frpc.conf"
  
 start_service()
  
