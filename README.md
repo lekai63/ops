@@ -33,6 +33,10 @@ echo 'xt_TPROXY' > /etc/modules-load.d/tproxy.conf
 如需官方原版，也可直接根据以下项目编译
 https://github.com/mikma/lxd-openwrt
 
+## 旁路由的设置
+OPENWRT默认物理网口绑定到LAN区域（也就是桥接），而LAN区域默认拥有路由远程管理权限。但在单臂路由时，由于一个物理网口同时要收发WAN区域流量和LAN区域流量，所以物理网口（eth0）需要取消桥接LAN。在eth0取消桥接LAN后，由于LAN区域已经不再有实际物理网口绑定，原虚拟网卡LAN的地址自动赋值给物理网口eth0，所以并不妨碍我们远程管理路由。但硬路由LAN桥接的eth0网卡有四个子接口（eth0.1-eth0.4），在取消桥接LAN后系统无法给4个子网卡自动设置IP，网卡没有设置IP，所以我们就不能远程管理路由了
+
+ref: https://www.right.com.cn/forum/forum.php?mod=viewthread&tid=4031598
 
 # Actions-OpenWrt
 
